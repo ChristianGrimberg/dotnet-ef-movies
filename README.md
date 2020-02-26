@@ -7,8 +7,12 @@ This app is development with .NET Core 3.1 Entity Framework
     ```bash
     git clone https://github.com/ChristianGrimberg/dotnet-movies.git
     ```
-* Follow this steps to add packages references included in this proyect under `Movies/` directory:
+* _Optional_: Follow this steps to add packages references preloaded in this proyect under `Movies/` directory:
     ```bash
+    # .NET Core Entity Framework package
     dotnet add package Microsoft.EntityFrameworkCore
+    # .NET Core Entity Framework SQL Server package
     dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+    # .NET Core Entity Framework SDK Design package
+    dotnet add package Microsoft.EntityFrameworkCore.Design
     ```
