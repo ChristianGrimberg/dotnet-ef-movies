@@ -26,9 +26,6 @@ namespace Movies
         {
             optionsBuilder.UseSqlServer(@"Data source=(localdb)\MSSQLLocalDB; Initial Catalog=Movies; Integrated Security=true");
         }
-        protected MoviesDbContext()
-        {
-        }
 
         public DbSet<Movie> Movies { get; set; }
     }
