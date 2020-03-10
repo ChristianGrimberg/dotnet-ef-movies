@@ -23,3 +23,18 @@ This app is development with .NET Core 3.1 Entity Framework
     # Add the .NET Core Entity Framework Powershell Tools
     dotnet add package Microsoft.EntityFrameworkCore.Tools
     ```
+* Know about the DbContext implementation:
+    ```bash
+    dotnet ef dbcontext info
+    ```
+* Migrate the CodeFirst Model to implement the database context
+    ```bash
+    # Create a snapshot Migration model for the Database
+    dotnet ef migrations add Initial
+    # Optional to check the migrations snapshots created
+    dotnet ef migrations list
+    # To migrate the model to the database
+    dotnet ef database update -v
+    # If you need to re-create this model, remove the snapshot first
+    dotnet ef migrations remove -f
+    ```
