@@ -5,7 +5,7 @@ This app is development with .NET Core 3.1 Entity Framework
 * Go to the [.NET Core Entity Framework page](https://www.nuget.org/packages/dotnet-ef) to download and install the NuGet Package to your system.
 * Clone this repo with this command:
     ```bash
-    git clone https://github.com/ChristianGrimberg/dotnet-movies.git
+    git clone git@github.com:ChristianGrimberg/dotnet-ef-movies.git
     ```
 ## Build this project yourself
 * Create a .NetCore Console App like `Movies`:
