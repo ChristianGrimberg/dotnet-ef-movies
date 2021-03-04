@@ -1,8 +1,11 @@
 # My first .NET Core Entity Framework Application
 This app is development with .NET Entity Framework Core 5
 ## Steps to install this proyect
-* Go to the [.NET Core 5 Download page](http://aka.ms/dotnet-download) to download and install the SDK to your system.
-* Go to the [.NET Entity Framework Core page](https://www.nuget.org/packages/dotnet-ef) to download and install the NuGet Package to your system.
+* Go to the [.NET 5 download page](http://aka.ms/dotnet-download) to download and install the SDK to your system.
+* Go to the [.NET Entity Framework Core page](https://www.nuget.org/packages/dotnet-ef) to download and install the NuGet Package to your system with this command:
+    ```bash
+    dotnet tool install --global dotnet-ef --version 5.0.3
+    ```
 * Clone this repo with this command:
     ```bash
     git clone git@github.com:ChristianGrimberg/dotnet-ef-movies.git

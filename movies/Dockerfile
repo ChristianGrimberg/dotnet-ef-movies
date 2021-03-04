@@ -4,6 +4,7 @@ WORKDIR /movies
 FROM mcr.microsoft.com/dotnet/sdk:5.0.200 AS build
 WORKDIR /src
 COPY . .
+RUN dotnet tool install --global dotnet-ef --version 5.0.3
 #RUN dotnet restore
 #RUN dotnet build --configuration Release --no-restore
 
