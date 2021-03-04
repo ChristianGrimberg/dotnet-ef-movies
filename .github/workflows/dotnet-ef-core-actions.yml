@@ -1,0 +1,28 @@
+name: .NET Entity Framework Core Build, Test, Publish and Run application
+
+on:
+  push
+
+jobs:
+  Build-Test-Publish-Run:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.200
+#    - name: Install dependencies
+#      run: dotnet restore
+#    - name: Build
+#      run: dotnet build --configuration Release --no-restore
+#    - name: Test
+#      run: dotnet test --no-restore --verbosity normal
+#    - name: Publish
+#      run: dotnet publish --self-contained -r linux-x64 -c Release
+#    - name: Run
+#      run: |
+#        dotnet app/bin/Release/net5.0/linux-x64/app.dll app/bin/Release/net5.0/linux-x64/ app/bin/Release/net5.0/linux-x64/test.zip
+#        ls -lh app/bin/Release/net5.0/linux-x64/ | grep \.zip$
