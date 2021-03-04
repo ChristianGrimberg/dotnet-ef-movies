@@ -22,13 +22,13 @@ This app is development with .NET Entity Framework Core 5
 * Follow this steps to add packages references preloaded in this proyect under `movies/` directory:
     ```bash
     # Add the .NET Core Entity Framework package
-    dotnet add package Microsoft.EntityFrameworkCore
+    dotnet add movies package Microsoft.EntityFrameworkCore
     # Add the .NET Core Entity Framework SQL Server Provider
-    dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+    dotnet add movies package Microsoft.EntityFrameworkCore.SqlServer
     # Add the .NET Core Entity Framework SDK Design references
-    dotnet add package Microsoft.EntityFrameworkCore.Design
+    dotnet add movies package Microsoft.EntityFrameworkCore.Design
     # Add the .NET Core Entity Framework Powershell Tools
-    dotnet add package Microsoft.EntityFrameworkCore.Tools
+    dotnet add movies package Microsoft.EntityFrameworkCore.Tools
     ```
 * Know about the DbContext implementation:
     ```bash
