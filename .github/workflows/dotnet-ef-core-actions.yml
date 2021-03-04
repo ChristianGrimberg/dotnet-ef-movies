@@ -22,9 +22,8 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 #    - name: Test
 #      run: dotnet test --no-restore --verbosity normal
-#    - name: Publish
-#      run: dotnet publish --self-contained -r linux-x64 -c Release
-#    - name: Run
-#      run: |
-#        dotnet app/bin/Release/net5.0/linux-x64/app.dll app/bin/Release/net5.0/linux-x64/ app/bin/Release/net5.0/linux-x64/test.zip
-#        ls -lh app/bin/Release/net5.0/linux-x64/ | grep \.zip$
+    - name: Publish
+      run: dotnet publish --self-contained -r linux-x64 -c Release
+    - name: Run
+      run: |
+        dotnet movies/bin/Release/net5.0/linux-x64/movies.dll
