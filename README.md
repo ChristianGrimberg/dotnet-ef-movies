@@ -1,5 +1,6 @@
 # My first .NET Core Entity Framework Application
 [![.NET Entity Framework Core Build, Test, Publish and Run application](https://github.com/ChristianGrimberg/dotnet-ef-movies/actions/workflows/dotnet-ef-core-actions.yml/badge.svg?branch=main)](https://github.com/ChristianGrimberg/dotnet-ef-movies/actions/workflows/dotnet-ef-core-actions.yml)
+
 This app is development with .NET Entity Framework Core 5
 ## Steps to install this proyect
 * Go to the [.NET 5 download page](http://aka.ms/dotnet-download) to download and install the SDK to your system.
@@ -12,11 +13,13 @@ This app is development with .NET Entity Framework Core 5
     git clone git@github.com:ChristianGrimberg/dotnet-ef-movies.git
     ```
 ## Build this project yourself
-* Create a .NetCore Console App like `Movies`:
+* Create a .NetCore Console App like `movies`:
     ```bash
-    dotnet new console -n Movies
+    dotnet new console -n movies
+    dotnet new sln
+    dotnet sln add movies
     ```
-* Follow this steps to add packages references preloaded in this proyect under `Movies/` directory:
+* Follow this steps to add packages references preloaded in this proyect under `movies/` directory:
     ```bash
     # Add the .NET Core Entity Framework package
     dotnet add package Microsoft.EntityFrameworkCore
