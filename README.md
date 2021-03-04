@@ -1,4 +1,5 @@
 # My first .NET Core Entity Framework Application
+[![.NET Entity Framework Core Build, Test, Publish and Run application](https://github.com/ChristianGrimberg/dotnet-ef-movies/actions/workflows/dotnet-ef-core-actions.yml/badge.svg?branch=main)](https://github.com/ChristianGrimberg/dotnet-ef-movies/actions/workflows/dotnet-ef-core-actions.yml)
 This app is development with .NET Entity Framework Core 5
 ## Steps to install this proyect
 * Go to the [.NET 5 download page](http://aka.ms/dotnet-download) to download and install the SDK to your system.
