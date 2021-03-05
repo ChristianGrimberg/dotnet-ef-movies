@@ -24,8 +24,6 @@ namespace movies
         {
             optionsBuilder.UseSqlServer(@"Provider=MSOLEDBSQL;Server=.;Database=Movies;UID=sa;PWD=YourStrongPassword1234;");
         }
-        protected MoviesDbContext()
-        {}
         public DbSet<Movie> Movies { get; set; }
     }
 }
