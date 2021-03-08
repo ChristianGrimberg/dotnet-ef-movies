@@ -3,7 +3,18 @@ version: '3.4'
 
 services:
   movies:
-    image: movies
     build:
       context: .
-      dockerfile: movies/Dockerfile
+      dockerfile: Dockerfile
+    image: "csgrimberg/dotnet-ef-movies:latest"
+    mem_limit: 1536M
+    #cpus: 0.5
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: YourStrongPassword1234
+      MSSQL_PID: Express
+      TIMEOUT: 60
+    ports:
+      - "0.0.0.0:1433:1433"
+    container_name: dotnet-ef-movies
+    hostname: dotnet-ef-movies
