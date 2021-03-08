@@ -32,16 +32,16 @@ This app is development with .NET Entity Framework Core 5
     ```
 * Know about the DbContext implementation:
     ```bash
-    dotnet ef dbcontext info
+    dotnet ef --project movies dbcontext info
     ```
 * Migrate the CodeFirst Model to implement the database context
     ```bash
     # Create a snapshot Migration model for the Database
-    dotnet ef migrations add Initial
+    dotnet ef --project movies migrations add Initial
     # Optional to check the migrations snapshots created
-    dotnet ef migrations list
+    dotnet ef --project movies migrations list
     # To migrate the model to the database
-    dotnet ef database update -v
+    dotnet ef --project movies database update -v
     # If you need to re-create this model, remove the snapshot first
-    dotnet ef migrations remove -f
+    dotnet ef --project movies migrations remove -f
     ```
