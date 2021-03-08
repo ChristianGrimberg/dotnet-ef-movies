@@ -19,7 +19,7 @@ This app is development with .NET Entity Framework Core 5
     dotnet new sln
     dotnet sln add movies
     ```
-* Follow this steps to add packages references preloaded in this proyect under `movies/` directory:
+* Follow this steps to add Entity Framework Core packages references preloaded in this proyect under `movies/` directory:
     ```bash
     # Add the .NET Core Entity Framework package
     dotnet add movies package Microsoft.EntityFrameworkCore
@@ -29,6 +29,12 @@ This app is development with .NET Entity Framework Core 5
     dotnet add movies package Microsoft.EntityFrameworkCore.Design
     # Add the .NET Core Entity Framework Powershell Tools
     dotnet add movies package Microsoft.EntityFrameworkCore.Tools
+    ```
+* Optional, you can add support to Configuration Files with Nuget:
+    ```bash
+    dotnet add movies package Microsoft.Extensions.Configuration
+    dotnet add movies package Microsoft.Extensions.Configuration.FileExtensions
+    dotnet add movies package Microsoft.Extensions.Configuration.Json
     ```
 * Know about the DbContext implementation:
     ```bash

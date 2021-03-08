@@ -22,7 +22,7 @@ namespace movies
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Provider=MSOLEDBSQL;Server=.;Database=Movies;UID=sa;PWD=YourStrongPassword1234;");
+            optionsBuilder.UseSqlServer(@"Server=.;Database=Movies;UID=sa;PWD=YourStrongPassword1234;");
         }
         public DbSet<Movie> Movies { get; set; }
     }
