@@ -1,29 +1,71 @@
 name: .NET Entity Framework Core Build, Test, Publish and Run application
 
 on:
-  push
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
 
 jobs:
   Build-Test-Publish-Run:
 
     runs-on: ubuntu-18.04
+    env:
+      SA_PASSWORD: ${{ secrets.SA_PASSWORD }}
+      GH_REGISTRY_USER: ${{ secrets.GH_REGISTRY_USER }}
+      GH_REGISTRY_PASSWORD: ${{ secrets.GH_REGISTRY_PASSWORD }}
+      DOCKER_USER: ${{ secrets.DOCKER_USER }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.200
-    - name: Install .Net Entity Framework Core
-      run: dotnet tool install --global dotnet-ef --version 5.0.3
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
+
+    - name: Build local image and Tag
+      run: |
+        docker build -t csgrimberg/dotnet-ef-movies:latest .
+        docker tag csgrimberg/dotnet-ef-movies:latest docker.pkg.github.com/christiangrimberg/dotnet-ef-movies/dotnet-ef-movies:latest
+
+    - name: Run the Container
+      run: docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=$SA_PASSWORD' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name movies -d csgrimberg/dotnet-ef-movies:latest
+
+    - name: Waiting to start SQL Server Engine
+      run: docker exec movies /bin/bash -c /var/opt/mssql/scripts/entrypoint.sh
+      continue-on-error: true
+
+    - name: Test connection to Database Engine
+      run: docker exec movies /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '$SA_PASSWORD' -Q 'SELECT @@VERSION'
+      continue-on-error: true
+
+    - name: Connect to GitHub Packages with GitHub Secrets
+      run: docker login https://docker.pkg.github.com -u $GH_REGISTRY_USER -p $GH_REGISTRY_PASSWORD
+
+    - name: Push the local image to GitHub Packages
+      run: docker push docker.pkg.github.com/christiangrimberg/dotnet-ef-movies/dotnet-ef-movies:latest
+      continue-on-error: true
+
+    - name: Connect to DockerHub with GitHub Secrets
+      run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+
+    - name: Push the local image to DockerHub
+      run: docker push csgrimberg/dotnet-ef-movies:latest
+      continue-on-error: true
+
+#    - name: Setup .NET Core
+#      uses: actions/setup-dotnet@v1
+#      with:
+#        dotnet-version: 5.0.200
+#    - name: Install .Net Entity Framework Core
+#      run: dotnet tool install --global dotnet-ef --version 5.0.3
+#    - name: Install dependencies
+#      run: dotnet restore
+#    - name: Build
+#      run: dotnet build --configuration Release --no-restore
 #    - name: Test
 #      run: dotnet test --no-restore --verbosity normal
-    - name: Publish
-      run: dotnet publish --self-contained -r linux-x64 -c Release
-    - name: Run
-      run: |
-        dotnet movies/bin/Release/net5.0/linux-x64/movies.dll
+#    - name: Publish
+#      run: dotnet publish --self-contained -r linux-x64 -c Release
+#    - name: Run
+#      run: |
+#        dotnet movies/bin/Release/net5.0/linux-x64/movies.dll
