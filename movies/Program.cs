@@ -12,7 +12,7 @@ namespace movies
                 .AddJsonFile("appsettings.json", true, true)
                 .Build();
 
-            Console.WriteLine($" Hello { config["name"] }!");
+            Console.WriteLine($"Hello { config["name"] }!");
         }
     }
 
