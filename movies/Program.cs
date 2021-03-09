@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace movies
 {
@@ -7,7 +8,11 @@ namespace movies
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            IConfiguration config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", true, true)
+                .Build();
+
+            Console.WriteLine($" Hello { config["name"] }!");
         }
     }
 
@@ -22,7 +27,12 @@ namespace movies
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.;Database=Movies;UID=sa;PWD=YourStrongPassword1234;");
+            IConfiguration config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", true, true)
+                .Build();
+
+            //optionsBuilder.UseSqlServer("Server=.;Database=Movies;UID=sa;PWD=YourStrongPassword1234;");
+            optionsBuilder.UseSqlServer(config["movies-db"]);
         }
         public DbSet<Movie> Movies { get; set; }
     }

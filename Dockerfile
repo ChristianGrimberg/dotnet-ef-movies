@@ -9,6 +9,7 @@ WORKDIR /src
 COPY dotnet-ef-movies.sln .
 COPY movies/movies.csproj movies/
 COPY movies/Program.cs movies/
+COPY movies/appsettings.json movies/
 RUN dotnet restore
 RUN dotnet build --configuration Release --no-restore
 
