@@ -10,7 +10,9 @@
 sleep 2
 echo "======= SEE THE DB CONTEXT INFO & MIGRATIONS ========" | tee -a ./config.log
 $HOME/.dotnet/tools/dotnet-ef --project /src/movies dbcontext info
+$HOME/.dotnet/tools/dotnet-ef --project /src/movies migrations add Initial
 $HOME/.dotnet/tools/dotnet-ef --project /src/movies migrations list
+$HOME/.dotnet/tools/dotnet-ef --project /src/movies database update -v
 
 # Run the application
 sleep 2
