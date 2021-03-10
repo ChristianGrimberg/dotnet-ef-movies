@@ -36,7 +36,7 @@ jobs:
       run: docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=_YourStrongPassword1234' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name movies -d csgrimberg/dotnet-ef-movies:latest
 
     - name: See container logs
-      run:  sleep 45 && docker container logs movies
+      run:  sleep 60 && docker container logs movies
       continue-on-error: true
 
     - name: Test connection to Database Engine
