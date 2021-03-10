@@ -19,7 +19,6 @@ jobs:
 
     runs-on: ubuntu-18.04
     env:
-      SA_PASSWORD: ${{ secrets.SA_PASSWORD }}
       GH_REGISTRY_USER: ${{ secrets.GH_REGISTRY_USER }}
       GH_REGISTRY_PASSWORD: ${{ secrets.GH_REGISTRY_PASSWORD }}
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
@@ -34,14 +33,14 @@ jobs:
         docker tag csgrimberg/dotnet-ef-movies:latest docker.pkg.github.com/christiangrimberg/dotnet-ef-movies/dotnet-ef-movies:latest
 
     - name: Run the Container
-      run: docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=$SA_PASSWORD' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name movies -d csgrimberg/dotnet-ef-movies:latest
+      run: docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Your$trongPassword1234' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name movies -d csgrimberg/dotnet-ef-movies:latest
 
     - name: See container logs
       run:  sleep 25 && docker container logs movies
       continue-on-error: true
 
     - name: Test connection to Database Engine
-      run: docker exec movies /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '$SA_PASSWORD' -Q 'SELECT @@VERSION'
+      run: docker exec movies /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Your$trongPassword1234' -Q 'SELECT @@VERSION'
       continue-on-error: true
 
     - name: Connect to GitHub Packages with GitHub Secrets
