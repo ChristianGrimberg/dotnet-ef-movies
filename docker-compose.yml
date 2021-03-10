@@ -11,7 +11,7 @@ services:
     #cpus: 0.5
     environment:
       ACCEPT_EULA: Y
-      SA_PASSWORD: Your$trongPassword1234
+      SA_PASSWORD: _YourStrongPassword1234
       MSSQL_PID: Express
       TIMEOUT: 60
     ports:

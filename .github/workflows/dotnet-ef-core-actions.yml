@@ -33,14 +33,14 @@ jobs:
         docker tag csgrimberg/dotnet-ef-movies:latest docker.pkg.github.com/christiangrimberg/dotnet-ef-movies/dotnet-ef-movies:latest
 
     - name: Run the Container
-      run: docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Your$trongPassword1234' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name movies -d csgrimberg/dotnet-ef-movies:latest
+      run: docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=_YourStrongPassword1234' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name movies -d csgrimberg/dotnet-ef-movies:latest
 
     - name: See container logs
-      run:  sleep 25 && docker container logs movies
+      run:  sleep 30 && docker container logs movies
       continue-on-error: true
 
     - name: Test connection to Database Engine
-      run: docker exec movies /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Your$trongPassword1234' -Q 'SELECT @@VERSION'
+      run: docker exec movies /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '_YourStrongPassword1234' -Q 'SELECT @@VERSION'
       continue-on-error: true
 
     - name: Connect to GitHub Packages with GitHub Secrets
