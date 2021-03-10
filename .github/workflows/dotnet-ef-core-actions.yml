@@ -30,9 +30,9 @@ jobs:
     - name: Run the Container
       run: docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=$SA_PASSWORD' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name movies -d csgrimberg/dotnet-ef-movies:latest
 
-    - name: Waiting to start SQL Server Engine
-      run: docker exec movies /bin/bash -c /var/opt/mssql/scripts/entrypoint.sh
-      continue-on-error: true
+#    - name: Waiting to start SQL Server Engine
+#      run: docker exec movies /bin/bash -c /var/opt/mssql/scripts/entrypoint.sh
+#      continue-on-error: true
 
     - name: Test connection to Database Engine
       run: docker exec movies /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '$SA_PASSWORD' -Q 'SELECT @@VERSION'
