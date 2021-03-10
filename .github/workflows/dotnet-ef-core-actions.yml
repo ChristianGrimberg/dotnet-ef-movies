@@ -5,6 +5,12 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+    paths:
+    - 'movies/**'
+    - '.github/workflows/**'
+    - 'docker-compose.yml'
+    - 'Dockerfile'
+    - 'dotnet-ef-movies.sln'
 
   workflow_dispatch:
 
