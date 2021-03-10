@@ -2,6 +2,15 @@
 [![.NET Entity Framework Core Build, Test, Publish and Run application](https://github.com/ChristianGrimberg/dotnet-ef-movies/actions/workflows/dotnet-ef-core-actions.yml/badge.svg?branch=main)](https://github.com/ChristianGrimberg/dotnet-ef-movies/actions/workflows/dotnet-ef-core-actions.yml)
 
 This app is development with .NET Entity Framework Core 5
+## Work with this proyect in a Docker Container
+* Pull this image directly from DockerHub:
+    ```bash
+    docker pull csgrimberg/dotnet-ef-movies:latest
+    ```
+* Run the container with this example:
+    ```bash
+    docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=YourStrongPassword1234' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name movies -d csgrimberg/dotnet-ef-movies:latest
+    ```
 ## Steps to install this proyect
 * Go to the [.NET 5 download page](http://aka.ms/dotnet-download) to download and install the SDK to your system.
 * Go to the [.NET Entity Framework Core page](https://www.nuget.org/packages/dotnet-ef) to download and install the NuGet Package to your system with this command:
