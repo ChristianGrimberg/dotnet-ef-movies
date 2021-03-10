@@ -9,7 +9,7 @@ This app is development with .NET Entity Framework Core 5
     ```
 * Run the container with this example:
     ```bash
-    docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=YourStrongPassword1234' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name movies csgrimberg/dotnet-ef-movies:latest
+    docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=YourStrongPassword1234' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name movies -d csgrimberg/dotnet-ef-movies:latest
     ```
 ## Steps to install this proyect
 * Go to the [.NET 5 download page](http://aka.ms/dotnet-download) to download and install the SDK to your system.
