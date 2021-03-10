@@ -8,28 +8,24 @@ namespace movies
     {
         static void Main(string[] args)
         {
-           Console.WriteLine($"Hello World!");
+           if(args.Length == 0 || args == null)
+           {
+               Movie newMovie = new Movie();
+               MoviesDbContext db = new MoviesDbContext();
+
+               Console.Write("Enter the name of the movie: ");
+               newMovie.Name = Console.ReadLine();
+
+               Console.Write("Enter the year: ");
+               newMovie.Year = int.Parse(Console.ReadLine());
+
+               db.Add(newMovie);
+               db.SaveChanges();
+           }
+           else
+           {
+               Console.WriteLine("This application does not accept parameters");
+           }
         }
-    }
-
-    public class Movie
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Year { get; set; }
-    }
-
-    public class MoviesDbContext : DbContext
-    {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            IConfiguration config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", true, true)
-                .Build();
-
-            //optionsBuilder.UseSqlServer("Server=.;Database=Movies;UID=sa;PWD=YourStrongPassword1234;");
-            optionsBuilder.UseSqlServer(config["movies-db"]);
-        }
-        public DbSet<Movie> Movies { get; set; }
     }
 }

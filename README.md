@@ -13,7 +13,12 @@ This app is development with .NET Entity Framework Core 5
 
 * Run the container with this example:
     ```bash
-    docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=_YourStrongPassword1234' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name movies csgrimberg/dotnet-ef-movies:latest
+    docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=_YourStrongPassword1234' -e 'MSSQL_PID=Express' -p 0.0.0.0:1433:1433 -e 'TIMEOUT=60' --name dotnet-ef-movies csgrimberg/dotnet-ef-movies:latest
+    ```
+
+* Run the application with this command in a new terminal after SQL Server started:
+    ```bash
+    docker exec -it dotnet-ef-movies dotnet /movies/movies.dll
     ```
 
 ## Steps to install this proyect

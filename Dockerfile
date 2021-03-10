@@ -6,10 +6,8 @@ RUN chmod +x entrypoint.sh configure-db.sh
 FROM Database AS Build
 RUN mkdir /src /src/movies
 WORKDIR /src
-COPY dotnet-ef-movies.sln .
-COPY movies/movies.csproj movies/
-COPY movies/Program.cs movies/
-COPY movies/appsettings.json movies/
+COPY [ "dotnet-ef-movies.sln", "." ]
+COPY [ "movies/movies.csproj", "movies/Program.cs", "movies/Movie.cs", "movies/MoviesDbContext.cs", "movies/appsettings.json", "movies/" ]
 RUN dotnet restore
 RUN dotnet build --configuration Release --no-restore
 

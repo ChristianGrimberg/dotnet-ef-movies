@@ -2,7 +2,7 @@
 version: '3.4'
 
 services:
-  movies:
+  dotnet-ef-movies:
     build:
       context: .
       dockerfile: Dockerfile

@@ -17,7 +17,7 @@ $HOME/.dotnet/tools/dotnet-ef --project /src/movies database update -v
 # Run the application
 sleep 2
 echo "======= RUN THE APPLICATION ========" | tee -a ./config.log
-dotnet /movies/movies.dll
+dotnet /movies/movies.dll "Test"
 
 # Call extra command
 eval $1
