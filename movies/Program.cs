@@ -25,11 +25,11 @@ namespace movies
 
                if(result != 0)
                {
-                   Console.WriteLine("Se almacenaron {0} registro/s.", result);
+                   Console.WriteLine("{0} records were stored.", result);
                }
                else
                {
-                   Console.WriteLine("Error al almacenar los datos en la base de datos.");
+                   Console.WriteLine("Error storing the data in the database.");
                }
            }
            else
