@@ -7,7 +7,7 @@ FROM Database AS Build
 RUN mkdir /src /src/movies
 WORKDIR /src
 COPY [ "dotnet-ef-movies.sln", "." ]
-COPY [ "movies/movies.csproj", "movies/Program.cs", "movies/Movie.cs", "movies/MoviesDbContext.cs", "movies/appsettings.json", "movies/" ]
+COPY [ "movies/movies.csproj", "movies/Program.cs", "movies/Actor.cs", "movies/Movie.cs", "movies/MoviesDbContext.cs", "movies/appsettings.json", "movies/" ]
 RUN dotnet restore
 RUN dotnet build --configuration Release --no-restore
 

@@ -26,7 +26,7 @@ This app is development with .NET Entity Framework Core 5
 * Go to the [.NET 5 download page](http://aka.ms/dotnet-download) to download and install the SDK to your system.
 * Go to the [.NET Entity Framework Core page](https://www.nuget.org/packages/dotnet-ef) to download and install the NuGet Package to your system with this command:
     ```bash
-    dotnet tool install --global dotnet-ef --version 5.0.3
+    dotnet tool install --global dotnet-ef --version 5.0.4
     ```
 
 * Clone this repo with this command:

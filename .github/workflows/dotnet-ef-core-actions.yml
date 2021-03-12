@@ -60,7 +60,7 @@ jobs:
 #    - name: Setup .NET Core
 #      uses: actions/setup-dotnet@v1
 #      with:
-#        dotnet-version: 5.0.200
+#        dotnet-version: 5.0.201
 #    - name: Install .Net Entity Framework Core
 #      run: dotnet tool install --global dotnet-ef --version 5.0.3
 #    - name: Install dependencies
