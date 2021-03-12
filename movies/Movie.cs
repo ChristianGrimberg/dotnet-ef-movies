@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace movies
@@ -13,5 +14,21 @@ namespace movies
         [Required]
         [Range(1900,2099)]
         public int Year { get; set; }
+
+        public MovieCategory Category { get; set; }
+
+        public List<Actor> Actors { get; set; }
+    }
+
+    public enum MovieCategory
+    {
+        Action,
+        Comedy,
+        Drama,
+        Fantasy,
+        Horror,
+        Mystery,
+        Romance,
+        Thriller
     }
 }

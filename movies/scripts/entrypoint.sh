@@ -9,9 +9,9 @@
 # Information about the DbContext
 sleep 2
 echo "======= SEE THE DB CONTEXT & MIGRATE CODE FIRST TO DATABASE ========" | tee -a ./config.log
-$HOME/.dotnet/tools/dotnet-ef --project /src/movies dbcontext info
+#$HOME/.dotnet/tools/dotnet-ef --project /src/movies dbcontext info
 $HOME/.dotnet/tools/dotnet-ef --project /src/movies migrations add Test
-$HOME/.dotnet/tools/dotnet-ef --project /src/movies migrations list
+#$HOME/.dotnet/tools/dotnet-ef --project /src/movies migrations list
 $HOME/.dotnet/tools/dotnet-ef --project /src/movies database update -v
 
 # Run the application

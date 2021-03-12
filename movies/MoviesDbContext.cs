@@ -15,5 +15,7 @@ namespace movies
             optionsBuilder.UseSqlServer(config["movies-db"]);
         }
         public DbSet<Movie> Movies { get; set; }
+
+        public DbSet<Actor> Actors { get; set; }
     }
 }
